@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GX Optimizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="newtab.css">
+</head>
+<body>
+  <video id="bgVideo" muted loop autoplay playsinline hidden></video>
+  <div id="shade"></div>
+  <canvas id="cava" aria-hidden="true"></canvas>
+  <div id="label" role="tooltip"></div>
+
+  <nav id="dock" aria-label="Shortcuts">
+    <div id="track"></div>
+  </nav>
+
+  <div id="menu" class="popmenu" role="menu" hidden>
+    <button data-act="locker" role="menuitem">Add to locker</button>
+    <button data-act="edit" role="menuitem">Edit</button>
+    <button data-act="remove" role="menuitem" class="danger">Remove</button>
+  </div>
+
+  <div id="lockerPanel" class="panel" hidden></div>
+  <div id="themeMenu" class="popmenu" role="menu" hidden></div>
+  <input type="file" id="wpFile" accept="image/*,video/mp4,video/webm" hidden>
+
+  <dialog id="themeEditor">
+    <form method="dialog" id="themeForm">
+      <h2 id="themeTitle">New theme</h2>
+      <label>Name <input id="tName" required maxlength="20" autocomplete="off"></label>
+      <label>Accent colour <input id="tColor" type="color" value="#a855f7"></label>
+      <label>Wallpaper: image, GIF or MP4 (optional) <input id="tFile" type="file" accept="image/*,video/mp4,video/webm"></label>
+      <p id="tErr" class="err" hidden></p>
+      <div class="row">
+        <button type="button" id="tCancel" class="ghost">Cancel</button>
+        <button type="submit" class="primary">Save theme</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="nameDlg">
+    <form method="dialog" id="nameForm">
+      <h2 id="nameTitle">Name</h2>
+      <label>Name <input id="nameInput" required maxlength="24" autocomplete="off"></label>
+      <div class="row">
+        <button type="button" id="nameCancel" class="ghost">Cancel</button>
+        <button type="submit" class="primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="soundDlg">
+    <form method="dialog" id="soundForm">
+      <h2>Keyboard sound</h2>
+      <label>Sound
+        <select id="kMode">
+          <option value="off">Off</option>
+          <option value="thock">Thock (deep, ASMR)</option>
+          <option value="clicky">Clicky (gamer)</option>
+          <option value="custom">My own sound files</option>
+        </select>
+      </label>
+      <label>Volume <input id="kVol" type="range" min="0" max="100" value="60"></label>
+      <label>Your own sound files <input id="kFiles" type="file" accept="audio/*" multiple></label>
+      <p id="kInfo" class="hint"></p>
+      <div class="row">
+        <button type="button" id="kClear" class="ghost">Clear my files</button>
+        <button type="button" id="kTest" class="ghost">Test</button>
+        <button type="submit" class="primary">Done</button>
+      </div>
+      <p class="hint">Plays when you type on this page.</p>
+    </form>
+  </dialog>
+
+  <dialog id="editor">
+    <form method="dialog" id="editForm">
+      <h2 id="editTitle">Add shortcut</h2>
+      <label>Name <input id="fName" required maxlength="24" autocomplete="off"></label>
+      <label>Website <input id="fUrl" required placeholder="example.com" autocomplete="off" spellcheck="false"></label>
+      <label>Icon (optional) <input id="fIcon" type="file" accept="image/*"></label>
+      <label class="chk" id="fResetWrap" hidden><input type="checkbox" id="fReset"> Go back to the default icon</label>
+      <p id="fErr" class="err" hidden></p>
+      <div class="row">
+        <button value="cancel" type="button" id="fCancel" class="ghost">Cancel</button>
+        <button value="ok" type="submit" class="primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" role="status"></div>
+  <script src="themes.js"></script>
+  <script src="cava.js"></script>
+  <script src="newtab.js"></script>
+</body>
+</html>

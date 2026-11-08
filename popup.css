@@ -1,0 +1,14 @@
+body { width: 260px; margin: 0; padding: 14px; background: var(--toolbar, #0b131c); color: var(--text, #e6faff); font: 13px/1.4 "Segoe UI", system-ui, sans-serif; }
+h1 { margin: 0 0 4px; font-size: 16px; color: var(--cyan-soft, #67e8f9); }
+#status { margin: 0 0 12px; color: var(--muted, #9fd5e3); }
+.h { margin: 14px 0 6px; color: var(--muted, #9fd5e3); }
+.sw { display: flex; align-items: center; gap: 9px; margin: 10px 0; cursor: pointer; }
+.sw input { accent-color: var(--cyan, #22d3ee); width: 16px; height: 16px; }
+.btns { display: grid; gap: 6px; margin: 12px 0; }
+button { padding: 8px 10px; border-radius: 9px; border: 1px solid var(--line-solid, #12303a); background: var(--btn, #0f1a24); color: inherit; font: inherit; cursor: pointer; text-align: left; }
+button:hover { border-color: var(--cyan, #22d3ee); background: var(--hover, #12303a); }
+.themes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+.themes button { display: flex; align-items: center; gap: 7px; }
+.themes button[aria-checked="true"] { border-color: var(--cyan, #22d3ee); box-shadow: 0 0 0 1px var(--cyan, #22d3ee); }
+.dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.hint { margin: 8px 0 0; color: var(--muted, #9fd5e3); font-size: 12px; }
